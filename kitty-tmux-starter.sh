@@ -12,12 +12,12 @@ tmux new-session	-d -s RC
 # Create .dotfiles RC window
 tmux rename-window	-t RC:1 '.dotfiles'
 tmux send-keys		-t RC:1 'cd ~/.dotfiles' C-m
-tmux send-keys		-t RC:3 'git pull --verbose' C-m
+tmux send-keys		-t RC:1 'git pull --verbose' C-m
 tmux send-keys		-t RC:1 'nvim .' C-m
 # Create Z-scripts RC window
 tmux new-window		-t RC:2 -n 'z-scripts'
 tmux send-keys		-t RC:2 'cd ~/C0D3/z-scripts' C-m
-tmux send-keys		-t RC:3 'git pull --verbose' C-m
+tmux send-keys		-t RC:2 'git pull --verbose' C-m
 tmux send-keys		-t RC:2 'nvim .' C-m
 # Create obsidian RC window
 tmux new-window		-t RC:3 -n 'obsidian' -c $OBSIDIAN_VAULT_PATH
