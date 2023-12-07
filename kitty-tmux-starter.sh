@@ -26,7 +26,11 @@ tmux send-keys		-t RC:2 'nvim .' C-m
 # Create obsidian RC window
 tmux new-window		-t RC:3 -n 'obsidian' -c $OBSIDIAN_VAULT_PATH
 tmux send-keys		-t RC:3 'cd '$OBSIDIAN_VAULT_PATH C-m
-tmux send-keys		-t RC:3 'll' C-m
+if command -v lsd &> /dev/null; then
+	tmux send-keys	-t RC:3 'lsd -al' C-m
+else
+	tmux send-keys		-t RC:3 'll' C-m
+fi
 tmux split-window	-t RC:3 -h 
 tmux send-keys		-t RC:3 'cd '$OBSIDIAN_VAULT_PATH C-m
 tmux send-keys		-t RC:3 'git pull --verbose' C-m
