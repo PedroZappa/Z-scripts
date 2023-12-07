@@ -26,11 +26,10 @@ tmux send-keys		-t RC:3 'git pull --verbose' C-m
 tmux send-keys		-t RC:3 'obsidian' C-m
 # Create Monitoring RC window
 tmux new-window		-t RC:4 -n 'ztop'
-if command -v btop &> /dev/null
-then
+if command -v btop &> /dev/null; then
 	tmux send-keys	-t RC:4 'btop' C-m
 else if command -v htop &> /dev/null
-	tmux send-keys	-t RC:4 'htop' C-m
+	tmux send-keys	-t RC:4 'htop' C-m; then
 else
 	tmux send-keys	-t RC:4 'top' C-m
 fi
