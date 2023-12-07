@@ -1,10 +1,14 @@
 #!/bin/bash
 
 # Set Path to Obsidian Vault
-if [[ $USER == "zedr0" ]]; then
+if [[ $USER == "zedr0" ]]; then			# Z-Desk
 	OBSIDIAN_VAULT_PATH="~/Documents/Obsidian/ZedroVault"
-else [[ $USER == "passunca" ]];
+elif [[ $USER == "passunca" ]]; then	# 42
 	OBSIDIAN_VAULT_PATH="~/sgoinfre/Obsidian/ZedroVault"
+elif [[ $USER == "zedro" ]]; then		# Z-Mac
+	OBSIDIAN_VAULT_PATH="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/ZedroVault"
+else
+	echo "ZMUX: Unknown user... you shall not pass!"
 fi
 
 # Create RC session
@@ -24,13 +28,14 @@ tmux new-window		-t RC:3 -n 'obsidian' -c $OBSIDIAN_VAULT_PATH
 tmux send-keys		-t RC:3 'cd '$OBSIDIAN_VAULT_PATH C-m
 tmux send-keys		-t RC:3 'll' C-m
 tmux split-window	-t RC:3 -h 
+tmux send-keys		-t RC:3 'cd '$OBSIDIAN_VAULT_PATH C-m
 tmux send-keys		-t RC:3 'git pull --verbose' C-m
 tmux send-keys		-t RC:3 'obsidian' C-m
 # Create Monitoring RC window
 tmux new-window		-t RC:4 -n 'ztop'
 if command -v btop &> /dev/null; then
 	tmux send-keys	-t RC:4 'btop' C-m
-else if command -v htop &> /dev/null; then
+else
 	tmux send-keys	-t RC:4 'htop' C-m 
 fi
 
