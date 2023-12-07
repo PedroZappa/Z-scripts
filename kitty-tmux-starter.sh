@@ -30,8 +30,8 @@ tmux send-keys		-t RC:3 'obsidian' C-m
 tmux new-window		-t RC:4 -n 'ztop'
 if command -v btop &> /dev/null; then
 	tmux send-keys	-t RC:4 'btop' C-m
-else if command -v htop &> /dev/null
-	tmux send-keys	-t RC:4 'htop' C-m; then
+else if command -v htop &> /dev/null; then
+	tmux send-keys	-t RC:4 'htop' C-m 
 else
 	tmux send-keys	-t RC:4 'top' C-m
 fi
