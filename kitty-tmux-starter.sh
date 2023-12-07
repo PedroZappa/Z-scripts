@@ -42,10 +42,10 @@ if command -v btop &> /dev/null; then
 else
 	tmux send-keys	-t RC:4 'htop' C-m 
 fi
-# Attach to RC
-tmux attach-session -t RC
+
+# Launch a new kitty tab and attach it to the tmux session "RC"
+kitty @ launch --type=tab sh -c 'tmux attach-session -t RC'
 
 # Create Z session
 tmux new-session	-d -s Z
-# Launch a new kitty tab and attach it to the tmux session "Z"
-kitty @ launch --type=tab sh -c 'tmux attach-session -t Z'
+tmux attach-session -t Z
