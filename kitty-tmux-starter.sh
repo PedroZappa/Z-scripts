@@ -32,8 +32,6 @@ if command -v btop &> /dev/null; then
 	tmux send-keys	-t RC:4 'btop' C-m
 else if command -v htop &> /dev/null; then
 	tmux send-keys	-t RC:4 'htop' C-m 
-else
-	tmux send-keys	-t RC:4 'top' C-m
 fi
 
 # Launch a new kitty tab and attach it to the tmux session "RC"
