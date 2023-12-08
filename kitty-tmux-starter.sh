@@ -8,7 +8,7 @@ elif [[ $USER == "passunca" ]]; then	# 42
 elif [[ $USER == "zedro" ]]; then		# Z-Mac
 	OBSIDIAN_VAULT_PATH="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/ZedroVault"
 else
-	echo "ZMUX: Unknown user... you shall not pass!"
+	echo "ZMUX: Unknown user... you shall not PATH! 😅"
 fi
 
 # Create RC session
