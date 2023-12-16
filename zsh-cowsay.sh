@@ -22,7 +22,7 @@ if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; th
 	index=$((RANDOM % length))
 	# Get random cow
 	cowfile=${cowfiles[$index]}
-	echo "$(cowsay -f $cowfile $message)"
+	echo "$(cowthink -f $cowfile $message)"
 	# echo "$(fortune | cowsay -dW 30))"
 else
 	echo "$message, no cowsay 🐄"
