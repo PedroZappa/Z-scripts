@@ -22,7 +22,7 @@ fi
 
 # Check cowsay & fortune
 if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; then
-	cmd_len=${#cmd[@]}						# Get cmd_len of cmd array
+	cmd_len=${#cmds[@]}						# Get cmd_len of cmd array
 	flags_len=${#flags[@]}					# Get flags_len of flags array
 	cowfiles_len=${#cowfiles[@]}			# Get cowfiles_len of cowfiles array
 
@@ -33,8 +33,9 @@ if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; th
 	cmd=${cmds[$cmd_i]}						# Get random cmd
 	flag=${flags[$flags_i]}				# Get random flag
 	cowfile=${cowfiles[$cow_i]}				# Get random cow
-	printf ""
+
 	echo "$($cmd $flag -f $cowfile $message)"
+	printf "$cmd $flag -f $cowfile +fortune\n"
 else
 	echo "$message, no cowsay 🐄"
 fi
