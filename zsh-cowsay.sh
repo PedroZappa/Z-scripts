@@ -8,6 +8,8 @@ cowfiles=(apt bud-frogs bunny calvin cheese cock cower daemon default dragon
 	snowman stegosaurus stimpy suse three-eyes turkey turtle tux unipony
 	unipony-smaller vader vader-koala www)
 
+# FaceMod flags
+flags=(-b -d -g -p -s -t -w -y)
 
 if command -v fortune > /dev/null 2>&1; then
 	message="$(fortune)"
@@ -22,9 +24,8 @@ if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; th
 	index=$((RANDOM % length))
 	# Get random cow
 	cowfile=${cowfiles[$index]}
-	echo "$(cowthink -f $cowfile $message)"
+	echo "$(cowthink $flags -f $cowfile $message)"
 	# echo "$(fortune | cowsay -dW 30))"
 else
 	echo "$message, no cowsay 🐄"
 fi
-
