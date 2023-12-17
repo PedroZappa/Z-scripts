@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# cowsay flavors
+cmds=(cowsay cowthink)
+# FaceMod flags
+flags=(-b -d -g -p -s -t -w -y)
 # Get available cowfiles with command: cowsay --list
 cowfiles=(apt bud-frogs bunny calvin cheese cock cower daemon default dragon
 	dragon-and-cow duck elephant elephant-in-snake eyes flaming-sheep fox
@@ -8,24 +12,29 @@ cowfiles=(apt bud-frogs bunny calvin cheese cock cower daemon default dragon
 	snowman stegosaurus stimpy suse three-eyes turkey turtle tux unipony
 	unipony-smaller vader vader-koala www)
 
-# FaceMod flags
-flags=(-b -d -g -p -s -t -w -y)
-
+# Check fortune
 if command -v fortune > /dev/null 2>&1; then
+	# Get random fortune
 	message="$(fortune)"
 else
 	message="No fortune 🥠"
 fi
 
+# Check cowsay & fortune
 if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; then
-	# Get length of cowfiles array
-	length=${#cowfiles[@]}
-	# Get random index
-	index=$((RANDOM % length))
-	# Get random cow
-	cowfile=${cowfiles[$index]}
-	echo "$(cowthink $flags -f $cowfile $message)"
-	# echo "$(fortune | cowsay -dW 30))"
+	cmd_len=${#cmd[@]}						# Get cmd_len of cmd array
+	flags_len=${#flags[@]}					# Get flags_len of flags array
+	cowfiles_len=${#cowfiles[@]}			# Get cowfiles_len of cowfiles array
+
+	cmd_i=$((RANDOM % cmd_len))				# Get random cow_i
+	flags_i=$((RANDOM % flags_len))			# Get random flags_i
+	cow_i=$((RANDOM % cowfiles_len))		# Get random cow_i
+
+	cmd=${cmds[$cmd_i]}						# Get random cmd
+	flag=${flags[$flags_i]}				# Get random flag
+	cowfile=${cowfiles[$cow_i]}				# Get random cow
+	printf ""
+	echo "$($cmd $flag -f $cowfile $message)"
 else
 	echo "$message, no cowsay 🐄"
 fi
