@@ -4,7 +4,7 @@
 if [[ $USER == "zedr0" ]]; then			# Z-Desk
 	OBSIDIAN_VAULT_PATH="$HOME/Documents/Obsidian/ZedroVault"
 elif [[ $USER == "passunca" ]]; then	# 42
-	OBSIDIAN_VAULT_PATH="$HOME/sgoinfre/ZedroVault"
+	OBSIDIAN_VAULT_PATH="$HOME/sgoinfre/Zedro-Vault"
 elif [[ $USER == "zedro" ]]; then		# Z-Mac
 	OBSIDIAN_VAULT_PATH="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ZedroVault"
 else
