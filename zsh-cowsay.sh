@@ -31,7 +31,7 @@ if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; th
 	cow_i=$((RANDOM % cowfiles_len))		# Get random cow_i
 
 	cmd=${cmds[$cmd_i]}						# Get random cmd
-	flag=${flags[$flags_i]}				# Get random flag
+	flag=${flags[$flags_i]}					# Get random flag
 	cowfile=${cowfiles[$cow_i]}				# Get random cow
 
 	echo "$($cmd $flag -f $cowfile $message)"
