@@ -37,5 +37,5 @@ if command -v fortune > /dev/null 2>&1 && command -v cowsay > /dev/null 2>&1; th
 	echo "$($cmd $flag -f $cowfile $message)"
 	printf "$cmd $flag -f $cowfile +fortune\n"
 else
-	printf "$message, no cowsay 🐄"
+	printf "$message, no cowsay 🐄\n"
 fi
