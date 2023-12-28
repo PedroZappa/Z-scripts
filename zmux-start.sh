@@ -46,10 +46,9 @@ else
 	tmux send-keys	-t RC:4 'htop' C-m 
 fi
 
-
 # Create Z session
 tmux new-session	-d -s Z
 tmux attach-session -t Z
 
 # Launch a new kitty tab and attach it to the tmux session "RC"
-kitty new_tab -- tmux attach -t RC
+kitty --hold sh -c "tmux attach -t RC"
