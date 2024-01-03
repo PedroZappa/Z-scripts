@@ -11,6 +11,8 @@ else
 	echo "ZMUX: Unknown user... you shall not PATH! 😅"
 fi
 
+export OBSIDIAN_VAULT_PATH
+
 # Create RC session
 tmux new-session	-d -s RC
 # Create .dotfiles RC window
